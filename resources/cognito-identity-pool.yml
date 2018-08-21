@@ -9,9 +9,9 @@ Resources:
       AllowUnauthenticatedIdentities: false
       # Link to our User Pool
       CognitoIdentityProviders:
-        - ClientId:
+      - ClientId:
           Ref: CognitoUserPoolClient
-        - ProviderName:
+        ProviderName:
           Fn::GetAtt: [ "CognitoUserPool", "ProviderName" ]
 
 
@@ -33,56 +33,56 @@ Resources:
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
-          - Effect: 'Allow'
-            Principal:
-              Federated: 'cognito-identity.amazonaws.com'
-            Action:
-              - 'sts:AssumeRoleWithWebIdentity'
-            Condition:
-              StringEquals:
-                'cognito-identity.amazonaws.com:aud':
-                  Ref: CognitoIdentityPool
-                'ForAnyValue:StringLike':
-                  'cognito-identity.amazonaws.com:amr': authenticated
+        - Effect: 'Allow'
+          Principal:
+            Federated: 'cognito-identity.amazonaws.com'
+          Action:
+          - 'sts:AssumeRoleWithWebIdentity'
+          Condition:
+            StringEquals:
+              'cognito-identity.amazonaws.com:aud':
+                Ref: CognitoIdentityPool
+            'ForAnyValue:StringLike':
+              'cognito-identity.amazonaws.com:amr': authenticated
 
       Policies:
-        - PolicyName: 'CognitoAuthorizedPolicy'
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-              - Effect: 'Allow'
-                Action:
-                  - 'mobileanalytics:PutEvents'
-                  - 'cognito-sync:*'
-                  - 'cognito-identity:*'
-                Resource: '*'
+      - PolicyName: 'CognitoAuthorizedPolicy'
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: 'Allow'
+            Action:
+            - 'mobileanalytics:PutEvents'
+            - 'cognito-sync:*'
+            - 'cognito-identity:*'
+            Resource: '*'
 
-              # Allow users to invoke our API
-              - Effect: 'Allow'
-                Action:
-                  - 'execute-api:Invoke'
-                Resource:
-                  Fn::Join:
-                    - ''
-                    -
-                      - 'arn:aws:execute-api:'
-                      - Ref: AWS::Region
-                      - ':'
-                      - Ref: AWS::AccountId
-                      - ':'
-                      - Ref: ApiGatewayRestApi
-                      - '/*'
+          # Allow users to invoke our API
+          - Effect: 'Allow'
+            Action:
+            - 'execute-api:Invoke'
+            Resource:
+              Fn::Join:
+              - ''
+              -
+                - 'arn:aws:execute-api:'
+                - Ref: AWS::Region
+                - ':'
+                - Ref: AWS::AccountId
+                - ':'
+                - Ref: ApiGatewayRestApi
+                - '/*'
 
-              # Allow users to work with S3 bucket
-              - Effect: 'Allow'
-                Action:
-                  - 's3:*'
-                Resource:
-                  Fn::Join:
-                    - ''
-                    -
-                      - Fn::GetAtt: [AssetsBucket, Arn]
-                      - '/*'
+          # Allow users to work with S3 bucket
+          - Effect: 'Allow'
+            Action:
+            - 's3:*'
+            Resource:
+              Fn::Join:
+              - ''
+              -
+                - Fn::GetAtt: [AssetsBucket, Arn]
+                - '/*'
 
 Outputs:
   IdentityPoolId:
