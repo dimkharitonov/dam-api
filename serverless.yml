@@ -36,3 +36,6 @@ functions:
 resources:
   # S3
   - ${file(resources/s3buckets.yml)}
+  # Cognito
+  - ${file(resources/cognito-user-pool.yml)}
+  
