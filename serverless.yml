@@ -1,5 +1,7 @@
 # NOTE: update this with your service name
 service: dam-api
+app: dam-api
+tenant: dimkharitonov
 
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
@@ -9,6 +11,7 @@ plugins:
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:
+  stage: ${opt:stage, self:provider.stage}
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
