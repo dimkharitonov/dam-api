@@ -5,18 +5,18 @@ Resources:
       # CORS configuration
       CorsConfiguration:
         CorsRules:
-          -
-            AllowedOrigins:
-              - '*'
-            AllowedHeaders:
-              - '*'
-            AllowedMethods:
-              - GET
-              - PUT
-              - POST
-              - DELEAT
-              - HEAD
-            MaxAge: 3000
+        -
+          AllowedOrigins:
+          - '*'
+          AllowedHeaders:
+          - '*'
+          AllowedMethods:
+          - GET
+          - PUT
+          - POST
+          - DELETE
+          - HEAD
+          MaxAge: 3000
 
 Outputs:
   AttachmentsBucketName:
