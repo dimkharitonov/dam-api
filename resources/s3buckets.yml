@@ -1,0 +1,24 @@
+Resources:
+  AssetsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      # CORS configuration
+      CorsConfiguration:
+        CorsRules:
+          -
+            AllowedOrigins:
+              - '*'
+            AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - GET
+              - PUT
+              - POST
+              - DELEAT
+              - HEAD
+            MaxAge: 3000
+
+Outputs:
+  AttachmentsBucketName:
+    Value:
+      Ref: AssetsBucket
