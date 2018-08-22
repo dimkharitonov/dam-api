@@ -8,14 +8,16 @@ Resources:
         -
           AllowedOrigins:
           - '*'
-          AllowedHeaders:
-          - '*'
           AllowedMethods:
           - GET
           - PUT
           - POST
           - DELETE
           - HEAD
+          AllowedHeaders:
+          - '*'
+          ExposedHeaders:
+          - ETag
           MaxAge: 3000
 
 Outputs:
