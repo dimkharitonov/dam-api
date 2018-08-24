@@ -1,0 +1,11 @@
+{
+  "body": "{\"title\":\"updated title\",\"summary\":\"updated summary\",\"extension\":\"jpg\"}",
+  "pathParameters": {
+    "fileName": "test file name"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

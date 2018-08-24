@@ -1,0 +1,16 @@
+Resources:
+  AssetsMetaTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      # Generate a name based on the stage
+      TableName: ${self:custom.stage}-assets-meta
+      AttributeDefinitions:
+      - AttributeName: fileName
+        AttributeType: S
+      KeySchema:
+      - AttributeName: fileName
+        KeyType: HASH
+      # Set the capacity based on the stage
+      ProvisionedThroughput:
+        ReadCapacityUnits: ${self:custom.tableThroughput}
+        WriteCapacityUnits: ${self:custom.tableThroughput}
