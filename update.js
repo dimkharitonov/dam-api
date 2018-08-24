@@ -6,7 +6,7 @@ export async function main(event, context, callback) {
   const params = {
     TableName: process.env.tableName,
     Key: {
-      fileName: event.pathParameters.fileName
+      fileName: decodeURIComponent(event.pathParameters.fileName)
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression

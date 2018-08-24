@@ -1,6 +1,6 @@
 {
   "pathParameters": {
-    "fileName": "test file name"
+    "fileName": "test%2Ffile%20name"
   },
   "requestContext": {
     "identity": {
