@@ -67,7 +67,7 @@ functions:
     handler: handlers/list.main
     events:
       - http:
-          path: assets
+          path: assets/list/{fileType}
           method: get
           cors: true
           authorizer: aws_iam

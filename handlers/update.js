@@ -1,13 +1,13 @@
 import * as dynamoDbLib from '../libs/dynamodb-lib';
 import { success, failure } from '../libs/response-lib';
+import { getFileTypeAndName } from '../libs/file-type-name-lib';
 
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.tableName,
     Key: {
-      fileType: decodeURIComponent(event.pathParameters.fileType),
-      fileName: decodeURIComponent(event.pathParameters.fileName)
+      ... getFileTypeAndName(event.pathParameters.fileName)
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
@@ -24,6 +24,7 @@ export async function main(event, context, callback) {
     const result = await dynamoDbLib.call("update", params);
     callback(null, success({ status: true }));
   } catch (e) {
+    console.log(e);
     callback(null, failure({ status: false }));
   }
 }
