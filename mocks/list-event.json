@@ -1,4 +1,7 @@
 {
+  "pathParameters": {
+    "fileType": "documents"
+  },
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"

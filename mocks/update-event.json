@@ -1,6 +1,7 @@
 {
   "body": "{\"title\":\"updated title\",\"summary\":\"updated summary\",\"extension\":\"jpg\"}",
   "pathParameters": {
+    "fileType": "documents",
     "fileName": "test%2Ffile%20name"
   },
   "requestContext": {

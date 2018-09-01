@@ -1,5 +1,6 @@
 {
   "pathParameters": {
+    "fileType": "documents",
     "fileName": "test%2Ffile%20name"
   },
   "requestContext": {
