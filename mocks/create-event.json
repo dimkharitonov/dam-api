@@ -1,5 +1,5 @@
 {
-  "body": "{\"fileType\":\"documents\",\"fileName\":\"test/file name\",\"extension\":\"jpg\",\"title\":\"test file\",\"summary\":\"test summary\",\"created\":\"123456\"}",
+  "body": "{\"fileName\":\"documents%2Ftest%2Ffile name\",\"extension\":\"jpg\",\"title\":\"test file\",\"summary\":\"test summary\",\"created\":\"123456\"}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"
