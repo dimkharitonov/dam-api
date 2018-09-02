@@ -1,0 +1,11 @@
+{
+  "pathParameters": {
+    "fileName": "media%2F11647090.JPG"
+  },
+  "body": "{\"dimensions\":[240,480]}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

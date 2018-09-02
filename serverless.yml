@@ -26,10 +26,14 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: eu-west-1
+  memorySize: 128
+  timeout: 3
 
   environment:
     tableName:
       Ref: AssetsMetaTable
+    assetsBucketName:
+      Ref: AssetsBucket
 
   iamRoleStatements:
   - Effect: Allow
@@ -45,6 +49,16 @@ provider:
     # the specific table for the stage
     Resource:
     - "Fn::GetAtt": [ AssetsMetaTable, Arn ]
+  - Effect: Allow
+    Action:
+    - s3:GetObject
+    - s3:PutObject
+    - s3:DeleteObject
+    Resource:
+      Fn::Join:
+      - ""
+      - - "Fn::GetAtt": [ AssetsBucket, Arn ]
+        - "/*"
 
 functions:
   create:
@@ -87,6 +101,16 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+  resize:
+    handler: handlers/resize.main
+    events:
+      - http:
+          path: assets/resize/{fileName}
+          method: put
+          cors: true
+          authorizer: aws_iam
+    memorySize: 1024
+    timeout: 10
 
 
 
