@@ -65,7 +65,7 @@ function isRasterImage(type) {
     'jpg',
     'png'
   ].reduce(
-    (result, value) => result || value === extension,
+    (result, value) => result || value === extension.toLowerCase(),
     false
   )
 }
