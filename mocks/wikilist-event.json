@@ -1,7 +1,5 @@
 {
-  "pathParameters": {
-    "fileName": "media/10002339"
-  },
+  "body": "{\"articleLocale\":\"en\"}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"

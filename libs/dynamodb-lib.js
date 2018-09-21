@@ -7,3 +7,9 @@ export function call(action, params) {
 
   return dynamoDb[action](params).promise();
 }
+
+export function batchCall(action, params) {
+  const dynamoDb = new AWS.DynamoDB();
+
+  return dynamoDb[action](params).promise();
+}

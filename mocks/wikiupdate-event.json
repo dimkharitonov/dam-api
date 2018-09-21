@@ -1,6 +1,7 @@
 {
+  "body": "{\"articleTitle\":\"updated title\",\"articleStatus\":\"loading\"}",
   "pathParameters": {
-    "fileName": "media/10002339"
+    "article": "en/http://en.test.com"
   },
   "requestContext": {
     "identity": {

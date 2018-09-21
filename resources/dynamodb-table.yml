@@ -18,3 +18,22 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: ${self:custom.tableThroughput}
         WriteCapacityUnits: ${self:custom.tableThroughput}
+  WikiArticlesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      # Generate a name based on the stage
+      TableName: ${self:custom.stage}-wiki-articles
+      AttributeDefinitions:
+      - AttributeName: articleLocale
+        AttributeType: S
+      - AttributeName: articleID
+        AttributeType: S
+      KeySchema:
+      - AttributeName: articleLocale
+        KeyType: HASH
+      - AttributeName: articleID
+        KeyType: RANGE
+      # Set the capacity based on the stage
+      ProvisionedThroughput:
+        ReadCapacityUnits: ${self:custom.tableThroughput}
+        WriteCapacityUnits: ${self:custom.tableThroughput}

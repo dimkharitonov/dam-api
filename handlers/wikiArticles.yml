@@ -1,0 +1,40 @@
+  wikiCreate:
+    handler: handlers/wiki/create.main
+    events:
+    - http:
+        path: wiki
+        method: post
+        cors: true
+        authorizer: aws_iam
+  wikiList:
+    handler: handlers/wiki/list.main
+    events:
+    - http:
+        path: wiki
+        method: get
+        cors: true
+        authorizer: aws_iam
+  wikiGet:
+    handler: handlers/wiki/get.main
+    events:
+    - http:
+        path: wiki/{article}
+        method: get
+        cors: true
+        authorizer: aws_iam
+  wikiDelete:
+    handler: handlers/wiki/delete.main
+    events:
+    - http:
+        path: wiki/{article}
+        method: delete
+        cors: true
+        authorizer: aws_iam
+  wikiUpdate:
+    handler: handlers/wiki/update.main
+    events:
+    - http:
+        path: wiki/{article}
+        method: put
+        cors: true
+        authorizer: aws_iam

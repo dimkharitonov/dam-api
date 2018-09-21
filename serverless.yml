@@ -14,8 +14,8 @@ plugins:
 custom:
   stage: ${opt:stage, self:provider.stage}
   tableThroughputs:
-    prod: 5
-    default: 1
+    prod: 10
+    default: 5
   tableThroughput: ${self:custom.tableThroughputs.${self:custom.stage}, self:custom.tableThroughputs.default}
   webpack:
     webpackConfig: ./webpack.config.js
@@ -32,6 +32,8 @@ provider:
   environment:
     tableName:
       Ref: AssetsMetaTable
+    wikiTableName:
+      Ref: WikiArticlesTable
     assetsBucketName:
       Ref: AssetsBucket
 
@@ -49,6 +51,7 @@ provider:
     # the specific table for the stage
     Resource:
     - "Fn::GetAtt": [ AssetsMetaTable, Arn ]
+    - "Fn::GetAtt": [ WikiArticlesTable, Arn ]
   - Effect: Allow
     Action:
     - s3:GetObject
@@ -61,56 +64,8 @@ provider:
         - "/*"
 
 functions:
-  create:
-    handler: handlers/create.main
-    events:
-      - http:
-          path: assets
-          method: post
-          cors: true
-          authorizer: aws_iam
-  get:
-    handler: handlers/get.main
-    events:
-      - http:
-          path: assets/{fileName}
-          method: get
-          cors: true
-          authorizer: aws_iam
-  list:
-    handler: handlers/list.main
-    events:
-      - http:
-          path: assets/list/{fileType}
-          method: get
-          cors: true
-          authorizer: aws_iam
-  update:
-    handler: handlers/update.main
-    events:
-      - http:
-          path: assets/{fileName}
-          method: put
-          cors: true
-          authorizer: aws_iam
-  delete:
-    handler: handlers/delete.main
-    events:
-      - http:
-          path: assets/{fileName}
-          method: delete
-          cors: true
-          authorizer: aws_iam
-  resize:
-    handler: handlers/resize.main
-    events:
-      - http:
-          path: assets/resize/{fileName}
-          method: put
-          cors: true
-          authorizer: aws_iam
-    memorySize: 1024
-    timeout: 15
+  - ${file(handlers/assets.yml)}
+  - ${file(handlers/wikiArticles.yml)}
 
 
 
