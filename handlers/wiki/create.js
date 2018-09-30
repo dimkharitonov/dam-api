@@ -13,12 +13,14 @@ export async function main(event, context, callback) {
           Item: {
             articleLocale: { S: i.articleLocale },
             articleID: { S: i.articleID },
-            articleTitle: { S: i.articleTitle },
-            articleType: { S: i.articleType },
-            articleCategory: { S: i.articleCategory },
-            articleLocation: { S: i.articleLocation },
-            articleTag: { S: i.articleTag },
-            articleStatus: { S: i.articleStatus }
+            articleTitle: i.articleTitle ? { S: i.articleTitle } : { NULL : true},
+            articleType: i.articleType ? { S: i.articleType } : { NULL : true},
+            articleCategory: i.articleCategory ? { S: i.articleCategory } : { NULL : true},
+            articleCategoryRU: i.articleCategoryRU ? { S: i.articleCategoryRU } : { NULL : true},
+            articleLocation: i.articleLocation ? { S: i.articleLocation } : { NULL : true},
+            articleTag: i.articleTag ? { S: i.articleTag } : { NULL : true},
+            articleStatus: i.articleStatus ? { S: i.articleStatus } : { NULL : true},
+            articleCreated: { S: String(i.articleCreated) }
           }
         }
       }

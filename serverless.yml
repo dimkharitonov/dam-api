@@ -47,6 +47,8 @@ provider:
     - dynamodb:PutItem
     - dynamodb:UpdateItem
     - dynamodb:DeleteItem
+    - dynamodb:BatchWriteItem
+    - dynamodb:BatchGetItem
     # Restrict our IAM role permissions to
     # the specific table for the stage
     Resource:

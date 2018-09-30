@@ -2,7 +2,7 @@ import * as dynamoDbLib from '../../libs/dynamodb-lib';
 import { success, failure } from '../../libs/response-lib';
 
 export async function main(event, context, callback) {
-  const { locale } = JSON.parse(event.body);
+  const { locale } = event.body ? JSON.parse(event.body) : {};
   const condition = locale && typeof locale === 'string' && locale.length === 2
     ? {
         KeyConditionExpression: "articleLocale = :locale",

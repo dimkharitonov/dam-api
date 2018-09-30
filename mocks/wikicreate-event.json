@@ -1,5 +1,5 @@
 {
-  "body": "{\"items\":[{\"articleLocale\":\"en\",\"articleID\":\"http://en.test.com\",\"articleTitle\":\"test summary\",\"articleType\":\"city\",\"articleCategory\":\"attractions\",\"articleLocation\":\"Estonia\",\"articleTag\":\"small sity, Estonian cities, luxury\",\"articleStatus\":\"new\"},{\"articleLocale\":\"en\",\"articleID\":\"http://ru.test.com\",\"articleTitle\":\"тестовая запись\",\"articleType\":\"city\",\"articleCategory\":\"attractions\",\"articleLocation\":\"Estonia\",\"articleTag\":\"small sity, Estonian cities, luxury\",\"articleStatus\":\"new\"}]}",
+  "body": "{\"items\":[{\"articleLocale\":\"en\",\"articleID\":\"http://en.test.com\",\"articleTitle\":\"test summary\",\"articleType\":\"city\",\"articleCategory\":\"attractions\",\"articleLocation\":\"Estonia\",\"articleTag\":\"small sity, Estonian cities, luxury\",\"articleStatus\":\"new\",\"articleCreated\":\"1538319271023\"},{\"articleLocale\":\"en\",\"articleID\":\"http://ru.test.com\",\"articleTitle\":\"тестовая запись\",\"articleType\":\"city\",\"articleCategory\":\"attractions\",\"articleLocation\":\"Estonia\",\"articleTag\":\"small sity, Estonian cities, luxury\",\"articleStatus\":\"new\"}]}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"
