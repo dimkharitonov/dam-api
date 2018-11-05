@@ -45,44 +45,4 @@ export async function main(event, context, callback) {
     callback(null, failure({ status: false }));
   }
 
-/*
-
-
-
-  const {
-    articleLocale,
-    articleID,
-    articleTitle,
-    articleType,
-    articleCategory,
-    articleLocation,
-    articleTag,
-    articleStatus
-  } = JSON.parse(event.body);
-
-  const params = {
-    TableName: process.env.wikiTableName,
-    Item: {
-      articleLocale,
-      articleID: articleID.trim(),
-      articleTitle,
-      articleType,
-      articleCategory,
-      articleLocation,
-      articleTag,
-      articleStatus,
-      created: Date.now()
-    }
-  };
-
-  console.log('params', params);
-
-  try {
-    await dynamoDbLib.call("put", params);
-    callback(null, success(params.Item));
-  } catch (e) {
-    console.log(e);
-    callback(null, failure({ status: false }));
-  }
- */
 }

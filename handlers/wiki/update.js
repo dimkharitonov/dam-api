@@ -7,9 +7,11 @@ export async function main(event, context, callback) {
     articleTitle,
     articleType,
     articleCategory,
+    articleCategoryRU,
     articleLocation,
     articleTag,
-    articleStatus
+    articleStatus,
+    articleCreated
   } = JSON.parse(event.body);
 
 
@@ -20,14 +22,16 @@ export async function main(event, context, callback) {
       articleID: articleID.join('/')
     },
 
-    UpdateExpression: "SET articleTitle = :articleTitle, articleType = :articleType, articleCategory = :articleCategory, articleLocation = :articleLocation, articleTag = :articleTag, articleStatus = :articleStatus",
+    UpdateExpression: "SET articleTitle = :articleTitle, articleType = :articleType, articleCategory = :articleCategory, articleCategoryRU = :articleCategoryRU, articleLocation = :articleLocation, articleTag = :articleTag, articleStatus = :articleStatus, articleCreated = :articleCreated",
     ExpressionAttributeValues: {
       ":articleTitle": articleTitle || null,
       ":articleType": articleType || null,
       ":articleCategory": articleCategory || null,
+      ":articleCategoryRU": articleCategoryRU || null,
       ":articleLocation": articleLocation || null,
       ":articleTag": articleTag || null,
-      ":articleStatus": articleStatus || 'new'
+      ":articleStatus": articleStatus || 'new',
+      ":articleCreated": articleCreated || Date.now()
     },
     ReturnValues: "ALL_NEW"
   };
