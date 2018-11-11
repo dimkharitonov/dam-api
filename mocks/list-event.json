@@ -2,7 +2,7 @@
   "pathParameters": {
     "fileType": "media"
   },
-  "body": "{\"items\":[\"4042543\",\"27397645\",\"27599197\"]}",
+  "queryStringParameters": "{\"items\":[\"4042543\",\"27397645\",\"27599197\"]}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"

@@ -25,7 +25,8 @@ const getData = function(type, item=null) {
 };
 
 export async function main(event, context, callback) {
-  let { items } = event.body ? JSON.parse(event.body) : [];
+  const qs = event.queryStringParameters;
+  let items = qs && qs.items ? qs.items.split(',') : [];
   const fileType = getFileTypeAndName(event.pathParameters.fileType).fileType;
 
   let requests = [];
