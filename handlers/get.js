@@ -10,8 +10,6 @@ export async function main(event, context, callback) {
     }
   };
 
-  console.log(params);
-
   try {
     const result = await dynamoDbLib.call("get", params);
     if (result.Item) {
